@@ -52,5 +52,7 @@ I'm not sure if it's a bug, the "date" uses UTC, both "date" and java use CST, b
 # About
 
 Author: Julian Droske
+
 IDE (Code Editor & Compiler): AIDE 2015
+
 Host&Tested device: Le X520, Android 8.1.0 Oreo (LineageOS 15.1)
