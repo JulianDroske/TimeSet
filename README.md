@@ -1,15 +1,15 @@
 ## Sync time from custom ntp server on Android
 
-Note: Make sure that you have gained root access and have busybox installed.
+Note: Make sure that you have gained root access and have already installed busybox.
 
 
 ***
 
 # Context
 
-So I'm a dev living in China mainland without any VPN that connects to any "google-accessible" server.
+So one of my dev friends is now living in China mainland without any VPN connecting to any "google-accessible" server.
 
-I turned my phone into an official LineageOS device which uses google as the only NTP server.
+He flashed the phone with an official LineageOS device which uses google as the only NTP server.
 
 It's the problem: "Connected, no internet" would be shown after connected to Wi-Fi, function "Use network-provided time" in Settings is unable to use.
 
@@ -18,13 +18,13 @@ It's the problem: "Connected, no internet" would be shown after connected to Wi-
 
 # Codes
 
-Part of codes (SNTPClient.java) are copied from a post from stackoverflow, which I cannot remember the url of.
+Part of codes (SNTPClient.java) are copied from a post (i forgot the link...) from stackoverflow, 
 
-It now uses ntp.aliyun.com as the default NTP server, defined at line 241 of SNTPClient.java
+It now uses ntp.aliyun.com as the default NTP server, defined at line 241 in SNTPClient.java
 
-Since I cannot find a way to set time properly with pure Java, I uses the "date" command inside busybox to do this job.
+Since I cannot find a way to set time properly with pure Java, I use "date" command inside busybox to do this job.
 
-Why i don't use the built-in "date"? Well, it will kill all user apps (on my device) after setting which is not suitable for sync.
+Why i didn't use the built-in "date"? Well, it would kill all user apps (on that device) after setting, which is not suitable for sync.
 
 
 ***
@@ -33,7 +33,7 @@ Why i don't use the built-in "date"? Well, it will kill all user apps (on my dev
 
 Just open it after installation.
 
-If "Program output" shows UTC time, that's a success.
+If "Program output" shows UTC time, it made a success.
 
 Any crash/error will be shown generally through either "Program output" or Toast.
 
@@ -43,7 +43,7 @@ It is not intended to run for a long time.
 
 # Other
 
-Only one thing I cannot understand is that I can only use UTC-1 conuntries instead of UTC+0 to properly adjust the time.
+Only one thing I cannot understand is that I must use UTC-1 conuntries instead of UTC+0 to adjust the time properly.
 
 I'm not sure if it's a bug, the "date" uses UTC, both "date" and java use CST, but the server returns one hour more when using UTC+0.
 
